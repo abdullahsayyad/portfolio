@@ -1,26 +1,81 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ---------------------------------------------------------------------------
+   Design tokens — transcribed from Figma
+   file Ki2Gq1R7Ic88kQk7tvKibJ, frame 6:3 ("MacBook Pro 14" - 1")
+   The design is light-only; no dark palette was specified.
+--------------------------------------------------------------------------- */
+@theme {
+  /* Colour */
+  --color-surface: #ffffff;
+  --color-ink: #000000;          /* headings, "About me", project titles */
+  --color-ink-soft: rgb(0 0 0 / 0.93);        /* active nav item */
+  --color-muted: #63635e;        /* role, bio, project descriptions */
+  --color-muted-soft: rgb(99 99 95 / 0.93);   /* inactive nav items */
+  --color-line: #d9d9d9;         /* divider, image placeholders, idle dots */
+
+  /* Type */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+
+  --text-small: 14px;   /* project / product descriptions */
+  --text-body: 15px;    /* role line, about copy */
+  --text-nav: 16px;     /* nav items, "About me" label */
+  --text-display: 24px; /* name, project titles */
+  /* Section headings are not in the design; sized above --text-display so the
+     hierarchy against a 24px project title is unambiguous. */
+  --text-section: clamp(28px, 3.2vw, 40px);
+
+  /* The vertical rule sits at 743 / 1512 of the canvas. */
+  --spacing-gutter: 38px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html {
+  scroll-behavior: smooth;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/*
+ * Hide scrollbars without disabling scrolling. The page still scrolls by
+ * wheel, trackpad, touch, keyboard and the nav/dot controls — only the bar
+ * itself is hidden.
+ */
+@utility no-scrollbar {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* legacy Edge */
+
+  &::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
   }
 }
 
+/* The document scroller, which is what scrolls below `lg`. */
+html,
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

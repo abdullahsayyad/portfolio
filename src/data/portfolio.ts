@@ -4,7 +4,7 @@ import type { NavSection, PortfolioContent } from "@/types/portfolio";
  * The single source of truth for page content.
  *
  * Real values: name, role and the About copy come from the Figma design.
- * PLACEHOLDER values: the contact copy and social handles are invented
+ * PLACEHOLDER values: the contact copy and the Instagram handle are invented
  * stand-ins so the layout can be seen with real-shaped content. Replace the
  * blocks marked PLACEHOLDER below — nothing else needs to change.
  */
@@ -37,7 +37,7 @@ export const portfolio: PortfolioContent = {
       {
         platform: "github",
         label: "GitHub",
-        href: "https://github.com/", // PLACEHOLDER — add your handle
+        href: "https://github.com/abdullahsayyad",
       },
       {
         platform: "instagram",
@@ -47,7 +47,7 @@ export const portfolio: PortfolioContent = {
       {
         platform: "linkedin",
         label: "LinkedIn",
-        href: "https://linkedin.com/in/", // PLACEHOLDER — add your handle
+        href: "https://www.linkedin.com/in/abdullahsayyad",
       },
     ],
     email: "abdullahsayyad.dev@gmail.com",
